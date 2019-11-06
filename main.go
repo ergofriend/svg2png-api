@@ -30,18 +30,29 @@ func main() {
 		panic(err)
 	}
 
+	log.Println("done tmpl.Execute")
+
 	size := image.Point{1000, 1000}
 	des, err := svg.Render(writer, size)
+
+	// imageBuffer := &bytes.Buffer{}
+
+	log.Println("done svg.Render")
 
 	out, err := os.Create("sample.png")
 	if err != nil {
 		log.Fatal("failed creating png file", err)
 	}
 
+	log.Println("done os.Create")
+
 	err = png.Encode(out, des)
 	if err != nil {
 		log.Fatal("failed writing png to file", err)
 	}
 
-	log.Println("done")
+	// file, err := os.Create("sample.png")
+	// fmt.Fprintln(file, imageBuffer)
+
+	log.Println("done png.Encode")
 }

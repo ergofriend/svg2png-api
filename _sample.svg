@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="f8fb7310-5c69-49e8-9ea8-47b293ce3231" data-name="svg" >
+<defs>
+    <style>
+    .background{
+        fill:#f7f8f9;
+    }
+    .blog_name,.description{
+        font-size:40px;
+        font-family:Noto Sans JP;
+    }
+    .description,.title{
+        fill:#242527;
+    }
+    .title{
+        font-size:90px;
+        font-weight:bold;
+    }
+    .blog_name{
+        fill:#6d7077;
+    }
+    .description{
+       /* line-height: 60px; */
+    }
+    </style>
+</defs>
+
+   <div class="title">
+      <text>
+        {{.Count}} items are made of {{.Material}}
+      </text>
+    </div>
+
+    <div class="blog_name">
+      <text>
+        {{.Count}} items are made of {{.Material}}
+      </text>
+    </div>
+
+
+   <div class="description">
+      <text>
+        {{.Count}} items are made of {{.Material}}
+      </text>
+    </div>
+
+</svg>
