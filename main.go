@@ -9,7 +9,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo"
-	"github.com/powerslacker/misc/svg"
+	"github.com/ergofriend/svg2png-api/svg"
 )
 
 // Quiz ...
