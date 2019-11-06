@@ -6,53 +6,53 @@ import (
 	"image"
 	"image/png"
 	"log"
-	"os"
+	"net/http"
 
+	"github.com/labstack/echo"
 	"github.com/powerslacker/misc/svg"
 )
 
+// Quiz ...
+type Quiz struct {
+	QuizName string
+	Option1  string
+	Option2  string
+	Option3  string
+}
+
 func main() {
+	tmpl, err := template.ParseFiles("templates/test2.svg")
+	if err != nil {
+		panic(err)
+	}
+
+	e := echo.New()
+	e.GET("/", func(c echo.Context) error {
+		return c.Blob(http.StatusOK, "image/png", renderImage(tmpl))
+	})
+	e.Logger.Fatal(e.Start(":1323"))
+}
+
+func renderImage(template *template.Template) []byte {
 	buffer := &bytes.Buffer{}
 	writer := buffer
 
-	type Inventory struct {
-		Material string
-		Count    uint
-	}
+	quiz := Quiz{"問2", "旧石器時代", "新石器時代", "縄文時代"}
 
-	sweaters := Inventory{"wool", 17}
-	tmpl, err := template.ParseFiles("sample.svg")
+	err := template.Execute(writer, quiz)
 	if err != nil {
 		panic(err)
 	}
-	err = tmpl.Execute(writer, sweaters)
-	if err != nil {
-		panic(err)
-	}
-
-	log.Println("done tmpl.Execute")
 
 	size := image.Point{1000, 1000}
 	des, err := svg.Render(writer, size)
 
-	// imageBuffer := &bytes.Buffer{}
+	imageBuffer := &bytes.Buffer{}
 
-	log.Println("done svg.Render")
-
-	out, err := os.Create("sample.png")
-	if err != nil {
-		log.Fatal("failed creating png file", err)
-	}
-
-	log.Println("done os.Create")
-
-	err = png.Encode(out, des)
+	err = png.Encode(imageBuffer, des)
 	if err != nil {
 		log.Fatal("failed writing png to file", err)
 	}
 
-	// file, err := os.Create("sample.png")
-	// fmt.Fprintln(file, imageBuffer)
-
-	log.Println("done png.Encode")
+	return imageBuffer.Bytes()
 }
