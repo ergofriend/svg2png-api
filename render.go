@@ -1,4 +1,4 @@
-package svg
+package main
 
 /*
 #cgo pkg-config: librsvg-2.0 cairo-pdf
@@ -20,9 +20,9 @@ import (
 	"unsafe"
 )
 
-// Render reads an SVG from the given reader and renders
+// renderSVG reads an SVG from the given reader and renders
 // it into an image of the given size.
-func Render(svg io.Reader, size image.Point) (*image.RGBA, error) {
+func renderSVG(svg io.Reader, size image.Point) (*image.RGBA, error) {
 	// TODO use GInputStream
 	svgData, err := ioutil.ReadAll(svg)
 	if err != nil {

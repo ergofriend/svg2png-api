@@ -9,7 +9,6 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo"
-	"github.com/ergofriend/svg2png-api/svg"
 )
 
 // Quiz ...
@@ -45,7 +44,7 @@ func renderImage(template *template.Template) []byte {
 	}
 
 	size := image.Point{1000, 1000}
-	des, err := svg.Render(writer, size)
+	des, err := util.RenderSVG(writer, size)
 
 	imageBuffer := &bytes.Buffer{}
 
