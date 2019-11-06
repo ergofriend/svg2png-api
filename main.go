@@ -30,16 +30,6 @@ func main() {
 		panic(err)
 	}
 
-	// hello := fmt.Sprint(writer)
-
-	// hello := bufio.NewWriter(writer)
-
-	// file, err := os.Open(hello)
-	// if err != nil {
-	// 	log.Fatal("failed reading svg", err)
-	// }
-	// defer file.Close()
-
 	size := image.Point{1000, 1000}
 	des, err := svg.Render(writer, size)
 
