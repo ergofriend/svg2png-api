@@ -1,0 +1,5 @@
+<svg height="300" width="300">
+<rect style="fill:url(#lg)"/>
+  <text x="0" y="15" fill="black">{{.Count}} items are made of {{.Material}}</text>
+  <text x="0" y="30" fill="black">{{.Count}} items are made of {{.Material}}</text>
+</svg>

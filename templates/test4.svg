@@ -1,0 +1,7 @@
+<svg viewBox="0 0 200 200">
+    <text x="100" y="80" text-anchor="middle" stroke-linejoin="round" font-size="60" font-family="sans-serif" fill="blue" stroke="aqua" stroke-width="10">縁どり</text>
+    <g stroke="aqua" stroke-width="10">
+        <text x="100" y="180" text-anchor="middle" stroke-linejoin="round" id="fuchi" font-size="60" font-family="sans-serif">縁どり</text>
+    </g>
+    <use xlink:href="#fuchi" fill="blue"/>
+</svg>

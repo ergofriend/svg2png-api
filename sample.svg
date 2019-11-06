@@ -1,4 +1,0 @@
-<svg height="30" width="200" style="background-color: grey;">
-  <text x="0" y="15" fill="white">{{.Count}} items are made of {{.Material}}</text>
-  <text x="0" y="30" fill="white">{{.Count}} items are made of {{.Material}}</text>
-</svg>
