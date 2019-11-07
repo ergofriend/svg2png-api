@@ -9,6 +9,8 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo"
+
+	"github.com/ergofriend/svg2png-api/util"
 )
 
 // Quiz ...
