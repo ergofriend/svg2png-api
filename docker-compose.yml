@@ -1,0 +1,17 @@
+version: "3.5"
+
+services:
+  app:
+    build:
+      context: .
+      target: builder
+    volumes:
+      - ./:/go/app
+    # command: go run main.go
+    command:
+      - realize
+      - start
+      - --run
+      - --no-config
+    ports:
+      - 1323:1323
