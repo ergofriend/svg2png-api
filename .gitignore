@@ -3,3 +3,6 @@ vendor/
 .DS_Store
 app
 svg2png-api
+
+_main
+util/_render
