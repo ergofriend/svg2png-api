@@ -60,7 +60,7 @@ func renderImage(template *template.Template) []byte {
 	}
 
 	size := image.Point{1000, 1000}
-	des, err := RenderSVG(writer, size)
+	des, err := renderSVG(writer, size)
 
 	imageBuffer := &bytes.Buffer{}
 
@@ -72,10 +72,9 @@ func renderImage(template *template.Template) []byte {
 	return imageBuffer.Bytes()
 }
 
-// util/render.go
 // RenderSVG reads an SVG from the given reader and renders
 // it into an image of the given size.
-func RenderSVG(svg io.Reader, size image.Point) (*image.RGBA, error) {
+func renderSVG(svg io.Reader, size image.Point) (*image.RGBA, error) {
 	// TODO use GInputStream
 	svgData, err := ioutil.ReadAll(svg)
 	if err != nil {
